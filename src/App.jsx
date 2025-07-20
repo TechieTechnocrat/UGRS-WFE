@@ -2,34 +2,35 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useA11yAnnouncer } from './hooks/useA11yAnnouncerCustomized.jsX';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { announce, Announcer } = useA11yAnnouncer();
+
+  const handleSuccess = () => {
+    announce("Profile updated successfully", {
+      mode: "polite",
+      vibrate: true,
+      playSound: true,
+    });
+  };
+
+  const handleError = () => {
+    announce("Error! Something went wrong.", {
+      mode: "assertive",
+      vibrate: true,
+      playSound: true,
+    });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Announcer />
+      <button onClick={handleSuccess}>Update Profile</button>
+      <button onClick={handleError}>Simulate Error</button>
+    </div>
+  );
 }
+
 
 export default App
