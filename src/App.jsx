@@ -8,28 +8,29 @@ function App() {
   const { announce, Announcer } = useA11yAnnouncer();
 
   const handleSuccess = () => {
-    announce("Profile updated successfully", {
-      mode: "polite",
-      vibrate: true,
-      playSound: true,
-    });
+   // For success messages
+announce("Profile updated successfully", { 
+  mode: "polite",
+  enableSpeech: true // Add this for testing
+});
+
+
   };
 
   const handleError = () => {
-    announce("Error! Something went wrong.", {
-      mode: "assertive",
-      vibrate: true,
-      playSound: true,
-    });
+   // For error messages  
+announce("Error! Something went wrong.", { 
+  mode: "assertive",
+  enableSpeech: true // Add this for testing
+});
   };
 
   const handleInfo = () => {
-    announce("Loading complete. 5 new notifications available.", {
-      mode: "polite",
-      vibrate: false,
-      playSound: true,
-      timeout: 4000,
-    });
+    // For error messages  
+announce("Hello, here was some info.", { 
+  mode: "polite",
+  enableSpeech: true // Add this for testing
+});
   };
 
   return (
