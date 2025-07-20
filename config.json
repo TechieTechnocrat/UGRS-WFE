@@ -1,0 +1,6 @@
+{
+    "aws_region": "ap-south-1",
+    "userPoolClientId": "",
+    "userPoolId": "",
+    "apiEndpoint": "http://localhost:8080"
+}
