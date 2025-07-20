@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import soundMp3 from "../../public/sound.mp3"
 
 export const useA11yAnnouncer = () => {
   const [message, setMessage] = useState("");
@@ -57,7 +58,7 @@ export const useA11yAnnouncer = () => {
       {/* 🔊 Hidden audio element for sound fallback */}
       <audio
         ref={audioRef}
-        src="/sound.mp3" // ✅ put your sound file in public/ folder
+        src={soundMp3}// ✅ put your sound file in public/ folder
         preload="auto"
       />
     </>
